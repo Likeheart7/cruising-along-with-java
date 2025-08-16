@@ -1,9 +1,6 @@
 package com.chenx.gatherer;
 
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Gatherer;
 
@@ -25,7 +22,6 @@ public class GatherParallelStateful {
 //            .gather(distinctBy(Person::ageGroup))
             .gather(distinctByParallel(Person::ageGroup))
             .forEach(System.out::println);
-
     }
 
     private static <T, C extends Comparable<C>> Gatherer<? super T, ?, T> distinctByParallel(Function<T, C> criteria) {
